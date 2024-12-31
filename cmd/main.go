@@ -170,4 +170,6 @@ func main() {
 		setupLog.Error(err, "problem running manager")
 		os.Exit(1)
 	}
+
+	setupLog.Info("just a code change to test")
 }
