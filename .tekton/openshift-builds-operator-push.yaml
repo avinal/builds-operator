@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
   annotations:
-    build.appstudio.openshift.io/repo: https://github.com/redhat-openshift-builds/operator?rev={{revision}}
+    build.appstudio.openshift.io/repo: https://github.com/avinal/builds-operator?rev={{revision}}
     build.appstudio.redhat.com/commit_sha: '{{revision}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
@@ -18,11 +18,11 @@ metadata:
       )
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: openshift-builds
-    appstudio.openshift.io/component: openshift-builds-operator
+    appstudio.openshift.io/application: builds-operator
+    appstudio.openshift.io/component: builds-operator
     pipelines.appstudio.openshift.io/type: build
   name: openshift-builds-operator-on-push
-  namespace: rh-openshift-builds-tenant
+  namespace: avinkuma-tenent
 spec:
   params:
   - name: git-url
@@ -30,7 +30,7 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/redhat-user-workloads/rh-openshift-builds-tenant/openshift-builds-operator:{{revision}}
+    value: quay.io/redhat-user-workloads/avinkuma-tenant/builds-operator:{{revision}}
   - name: dockerfile
     value: Dockerfile
   - name: build-source-image
