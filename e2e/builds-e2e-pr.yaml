@@ -1,0 +1,22 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  generateName: builds-e2e-tests-
+  labels:
+    appstudio.openshift.io/component: builds-operator
+spec:
+  params:
+    - name: SNAPSHOT
+      value: {"application":"operator-main","components":[{"name":"operator-main-operator","containerImage":"quay.io/redhat-user-workloads/avinkuma-tenant/builds-operator@sha256:ef9f78c01e4ffa9d31661ff3afb343ca8cce68b2ae899144ff326f89f4fbfe0d","source":{"git":{"url":"https://github.com/avinal/builds-operator","revision":"55c0dfd20b55c8d993d04c7a731e1d70453ef904","dockerfileUrl":".konflux/dockerfiles/operator.Dockerfile"}}}],"artifacts":{}}
+  pipelineRef:
+    resolver: git
+    params:
+      - name: name
+        value: builds-e2e-tests
+      - name: url
+        value: https://github.com/avinal/builds-operator
+      - name: revision
+        value: main
+      - name: pathInRepo
+        value: e2e/builds-e2e.yaml
+
