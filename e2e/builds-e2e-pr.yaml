@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  generateName: builds-e2e-tests-
+  labels:
+    appstudio.openshift.io/component: operator-main-index-4-17
+spec:
+  params:
+  pipelineRef:
+    resolver: git
+    params:
+      - name: name
+        value: e2e-tests-tektoncd-pipelines
+      - name: url
+        value: https://github.com/avinal/konflux-e2e
+      - name: revision
+        value: main
+      - name: pathInRepo
+        value: e2e-tests/builds-main-e2e.yaml
+
