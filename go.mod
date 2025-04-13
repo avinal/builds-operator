@@ -99,7 +99,7 @@ require (
 	k8s.io/kube-openapi v0.0.0-20240403164606-bc84c2ddaf99 // indirect
 	knative.dev/pkg v0.0.0-20240404013351-5d4af76051e4 // indirect
 	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
-	sigs.k8s.io/structured-merge-diff/v4 v4.4.1 // indirect
+	sigs.k8s.io/structured-merge-diff/v4 v4.7.0 // indirect
 )
 
 replace k8s.io/client-go => k8s.io/client-go v0.29.7
